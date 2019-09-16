@@ -1,0 +1,33 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col s12, m8, l8">
+            <h3>{{film.film_title}}</h3>
+            <p style="font-size:70%">Published {{film.review_published}}</p>
+            {{film.film_content_review|safe}}
+        </div>
+
+        <div class="col s12 m4 l4">
+            <ul class="collapsible popout">
+                {% for film in sidebar %}
+                    {% if forloop.counter0 == this_fil_idx %}
+                        <li class="active">
+                            <div class="collapsible-header">{{film.film_title}}<br>(currently viewing)</div>
+                        </li>
+                    {% else %}
+                        <li>
+                            <div class="collapsible-header">{{film.film_title}}</div>
+                            <div class="collapsible-body">
+                                <p><a href="/{{film.film_slug}}"><button class="btn waves-effect waves-light right-align" style="background-color:yellow; color:black">Go</button></a></p>
+
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

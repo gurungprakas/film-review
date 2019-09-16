@@ -1,0 +1,36 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tinymce/css/prism.css' %}">
+
+    <!-- Compiled and minified CSS -->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+    <link rel="stylesheet" href="{% static 'main/css/materialize.css' %}">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+
+ <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Films</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          {% include 'main/includes/navbaritems.html' %}
+      </ul>
+    </div>
+  </nav>
+
+{% include 'main/includes/messaging.html'%}
+
+    <div class="container">
+        <br>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+</body>
+
+<script src="{% static 'tinymce/js/prism.js' %}"></script>
+<script>M.AutoInit();</script>
